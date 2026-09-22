@@ -3,6 +3,8 @@
 >
 > ### 「五行特征使 DML 的 ATE 估计偏差降低 89.8%」——**不成立。**
 >
+> **⛔ 该仓库已归档（Archived）。** 本研究早期存在特征工程中的**目标泄漏**与**真值定义错误**，性能提升为统计假象。所有严谨的负结果诊断实验，请移步 ➡️ **[dml-target-leakage-diagnosis](https://github.com/zhounan111maker/dml-target-leakage-diagnosis)**。
+>
 > **根因：100% 目标泄漏（target leakage）。** 派生特征 `wood_trans_efficiency = Total_Trans_Amt / Credit_Limit` 直接由基线结果变量 Y(0)（`Total_Trans_Amt`）构造；即使删除原始列，泄漏仍通过派生特征进入 DML 协变量。模型在"估计"时已经看过了答案。
 >
 > **受控消融诊断**（30 个随机种子，仅切换泄漏通道 α）
